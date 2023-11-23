@@ -1,6 +1,6 @@
 <div class="container">
 
-   <h3>All Articles</h3>
+   <h3><?php esc_html_e('All Articles', 'ahona'); ?></h3>
 
    <div class="head_search search-bar-container">
       <div class="dropdown cat_dropdown">
@@ -29,14 +29,8 @@
           </div>
         </div>
      <div class="search">
-
-        <form  method="get" action="<?php echo esc_url(home_url('/')); ?>">
-
-            <i class="search-icon fa fa-search"></i>
-
-            <input type="search" class="search-field" placeholder="<?php echo esc_attr(__( 'Search', 'ahona' )); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php esc_attr_e( 'Search', 'ahona' ); ?>" />
-
-          </form>
+        
+        <?php get_search_form();?>
 
     </div>
 

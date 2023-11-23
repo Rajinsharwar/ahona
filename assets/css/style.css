@@ -6,24 +6,25 @@ body{
 	font-family: 'Poppins', sans-serif;
 }
 a{color: #11819D;}
-.top-header{
-	background: #eeeeee;
-	padding:10px 0;
+
+.top-header {
+    background: #eeeeee;
+    padding: 15px 0;
+    padding-top: 15px;
     transition: all 0.5s ease-in-out;
-    /* position: fixed; */
-    position: sticky; top: 32px;
+    position: sticky;
+    top: 0;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
     width: 100%;
     z-index: 999;
 }
-/* .top-header.fixed{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    transition: all 0.5s ease-in-out;
-    animation-name: headersticky;
-    animation-duration: 1s;
-} */
+
+body.admin-bar .top-header {
+    top: 32px; /* Adjust this value based on your design and the admin bar height */
+}
+
+
 .top-header .container,.head_articles .container{
 	display: flex;
     justify-content: space-between;
@@ -83,7 +84,6 @@ a{color: #11819D;}
 #short-footer{margin-bottom: 20px;}
 .head_articles{
 	padding:10px 0;
-    padding-top: 70px;
 }
 .head_articles h3{font-size: 20px;margin: 0;}
 .section_color{background: #f7f7f7;}
@@ -732,10 +732,14 @@ a{color: #11819D;}
 }
 
 .mobile-menu a {
+    border: 2px;
     display: block;
     padding: 10px 15px;
     text-decoration: none;
     color: #333;
+}
+.mobile-menu a:active {
+    font-weight: bold;
 }
 /* Add focus style to navigation links */
 .navbar a:focus,

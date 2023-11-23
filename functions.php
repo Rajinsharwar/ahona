@@ -236,6 +236,7 @@ function ahona_theme_customize_register($wp_customize) {
 
     $wp_customize->add_section('custom_social_links', array(
         'title' => __('Social Links', 'ahona'),
+		'capability' => 'edit_theme_options',
         'priority' => 30,
     ));
 
@@ -268,6 +269,7 @@ function ahona_theme_customize_register_color($wp_customize) {
 
     $wp_customize->add_section('header_customization', array(
         'title' => __('Header Customization', 'ahona'),
+		'capability' => 'edit_theme_options',
         'priority' => 30,
     ));
 
@@ -302,6 +304,7 @@ function ahona_theme_link_preview_settings($wp_customize) {
 
     $wp_customize->add_section('link_preview_settings', array(
         'title' => __('Link Preview Settings', 'ahona'),
+		'capability' => 'edit_theme_options',
         'priority' => 30,
     ));
 

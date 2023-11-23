@@ -59,6 +59,7 @@ jQuery('.mobile-menu-hamber, .top-header .mobile_menu').click(function(event) {
     event.stopPropagation();
 });
 
+
 jQuery( ".desktop_menu li.menu-item" ).hover(function() {  // mouse enter
     jQuery( this ).find( " > .dropdown-menu" ).show(); // display immediate child
 
@@ -73,9 +74,10 @@ jQuery( ".desktop_menu li.menu-item" ).hover(function() {  // mouse enter
 jQuery(document).ready(function($) {
     $('.mobile-menu li.active > a').siblings('.dropdown-menu').slideDown();
     $('.mobile-menu .menu-item-has-children > a').on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().toggleClass('active');
-        $(this).siblings('.dropdown-menu').slideToggle();
-        
+        if (!$(e.target).is('span')) {
+            e.preventDefault();
+            $(this).parent().toggleClass('active');
+            $(this).siblings('.dropdown-menu').slideToggle();
+        }
     });
 });
