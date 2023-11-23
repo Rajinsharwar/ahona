@@ -5,4 +5,3 @@ wp_list_comments();
 ?>
 <?php
 paginate_comments_links();
-?>

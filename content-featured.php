@@ -2,7 +2,7 @@
 
 	<?php if( has_post_thumbnail() ): ?>
 		
-		<div class="thumbnail">content feature page<?php the_post_thumbnail('thumbnail'); ?></div>
+		<div class="thumbnail"><?php esc_html_e('content feature page', 'ahona'); ?><?php the_post_thumbnail('thumbnail'); ?></div>
 
 	<?php endif; ?>
 	

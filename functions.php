@@ -11,6 +11,15 @@ function ahona_script_enqueue() {
 	wp_enqueue_style('responsive', get_template_directory_uri() . '/assets/css/responsive' . $suffix . '.css', array(), ahona_theme_version(), 'all');
 	wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), ahona_theme_version(), 'all');
 	wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom' . $suffix. '.js', array('jquery'), ahona_theme_version(), true);
+	wp_enqueue_script('link-preview-script', get_template_directory_uri() . '/assets/js/link-preview' . $suffix. '.js', array('jquery'), ahona_theme_version(), true);
+
+    wp_localize_script('link-preview-script', 'link_preview_vars', array(
+        'mshots_url' => 'https://s0.wp.com/mshots/v1/',
+        'width' => (get_theme_mod('ahona_live_preview_box_size') !== false) ? get_theme_mod('ahona_live_preview_box_size') : 300,
+        'excluded_elements' => get_theme_mod('ahona_live_preview_excluded_elements'),
+        'excluded_classes' => get_theme_mod('ahona_live_preview_excluded_classes'),
+        'excluded_ids' => get_theme_mod('ahona_live_preview_excluded_ids'),
+    ));
 }
 add_action( 'wp_enqueue_scripts', 'ahona_script_enqueue');
 
@@ -288,6 +297,84 @@ function ahona_theme_customize_register_color($wp_customize) {
 }
 add_action('customize_register', 'ahona_theme_customize_register_color');
 
+/* Link Previe Settings */
+function ahona_theme_link_preview_settings($wp_customize) {
+
+    $wp_customize->add_section('link_preview_settings', array(
+        'title' => __('Link Preview Settings', 'ahona'),
+        'priority' => 30,
+    ));
+
+	// Setting for Preview Box Size.
+	$wp_customize->add_setting( 'ahona_live_preview_box_size',
+	array(
+		'default'           =>  300,
+		'sanitize_callback' => 'absint',
+	)
+	);
+
+	// Control for Preview Box Size.
+	$wp_customize->add_control( 'ahona_live_preview_box_size', 
+	array(
+		'type'        => 'number',
+		'priority'    => 10,
+		'section'     => 'link_preview_settings',
+		'label'       => 'Preview Box Size',
+		'description' => 'Enter the size of the preview box (<b>default is 300</b>).',
+	));
+
+	// Setting for Excluded Elements.
+	$wp_customize->add_setting( 'ahona_live_preview_excluded_elements',
+	array(
+		'sanitize_callback' => 'wp_strip_all_tags',
+	)
+	);
+
+	// Control for Excluded Elements.
+	$wp_customize->add_control( 'ahona_live_preview_excluded_elements', 
+	array(
+		'type'        => 'text',
+		'priority'    => 10,
+		'section'     => 'link_preview_settings',
+		'label'       => 'Excluded Elements',
+		'description' => 'Enter the HTML elements you want to exclude, separated by commas (Ex: <b>h1, h2, span, p</b>).',
+	));
+
+	// Setting for Excluded Classes.
+	$wp_customize->add_setting( 'ahona_live_preview_excluded_classes',
+	array(
+		'sanitize_callback' => 'wp_strip_all_tags',
+	)
+	);
+
+	// Control for Excluded Classes.
+	$wp_customize->add_control( 'ahona_live_preview_excluded_classes', 
+	array(
+		'type'        => 'text',
+		'priority'    => 10,
+		'section'     => 'link_preview_settings',
+		'label'       => 'Excluded Classes',
+		'description' => 'Enter the CSS classes you want to exclude, separated by commas. Remember to include the DOT. (Ex: <b>.my-class, .another-class</b>).',
+	));
+
+	// Setting for Excluded IDs.
+	$wp_customize->add_setting( 'ahona_live_preview_excluded_ids',
+	array(
+		'sanitize_callback' => 'wp_strip_all_tags',
+	)
+	);
+
+	// Control for Excluded IDs.
+	$wp_customize->add_control( 'ahona_live_preview_excluded_ids', 
+	array(
+		'type'        => 'text',
+		'priority'    => 10,
+		'section'     => 'link_preview_settings',
+		'label'       => 'Excluded IDs',
+		'description' => 'Enter the HTML IDs you want to exclude, separated by commas. Remember to include the HASH. (Ex: <b>#my-id, #another-id</b>).',
+	));
+}
+add_action('customize_register', 'ahona_theme_link_preview_settings');
 
 function ahona_enqueue_comment_reply() {
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

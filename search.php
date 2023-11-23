@@ -11,7 +11,7 @@
 				
 				while( have_posts() ): the_post(); ?>
 					<div class="col-sm-4 col-md-4">
-                   <a href="<?php echo get_permalink();?>" class="post_block">
+                   <a href="<?php echo esc_url(get_permalink()); ?>" class="post_block">
                      <div class="post_block_img">
                       <?php 
                           $categories = get_the_category();

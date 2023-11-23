@@ -5,8 +5,8 @@
    <div class="head_search search-bar-container">
       <div class="dropdown cat_dropdown">
           <div class="categorymneu">
-            Category <button type="button" class="menu-toggle"><span class="fa fa-angle-down"></span></button>
-          </div>
+            <button type="button" class="menu-toggle"><?php esc_html_e( 'Category', 'ahona' ); ?><span class="fa fa-angle-down"></span></button>
+         </div>
           <div class="dropdown-menu">
             <?php 
 
@@ -20,7 +20,7 @@
                        break; 
                    }
 
-                   echo '<a href="' . get_category_link($category->term_id) . '" class="dropdown-item">' . $category->name . '</a>';
+                   echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="dropdown-item">' . esc_html($category->name) . '</a>';
 
                    $counter++;
                }
@@ -34,7 +34,7 @@
 
             <i class="search-icon fa fa-search"></i>
 
-            <input type="search" class="search-field" placeholder="Search" value="<?php echo get_search_query() ?>" name="s" title="Search" />
+            <input type="search" class="search-field" placeholder="<?php echo esc_attr(__( 'Search', 'ahona' )); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php esc_attr_e( 'Search', 'ahona' ); ?>" />
 
           </form>
 

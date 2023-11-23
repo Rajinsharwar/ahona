@@ -10,14 +10,14 @@
 					$categories = get_categories();
 
 					$counter = 0;
-					$limit = 3; 
+					$limit = 3;
 
 					foreach ($categories as $category) {
 					    if ($counter >= $limit) {
 					        break; 
 					    }
 
-					    echo '<a href="' . get_category_link($category->term_id) . '" class="cat_name">' . $category->name . '</a>';
+					    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="cat_name">' . esc_html($category->name) . '</a>';
 
 					    $counter++;
 					}
@@ -27,12 +27,20 @@
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<div class="author_bx">
 
-				<b> <?php echo $username->user_nicename; ?> </b>  on <span><?php echo get_the_date(); ?> </span> - <?php
+				<b><?php echo esc_html($username->user_nicename); ?></b> on <span><?php echo esc_html(get_the_date()); ?></span> - <?php
         $comment_count = get_comments_number();
-        printf(
-            _n('%d Comment', '%d Comments', $comment_count,'ahona'),
-            $comment_count
-        );
+		printf(
+			esc_html(
+				/* translators: The total number of comments on the Single post */
+				_n(
+					'%d Comment',
+					'%d Comments',
+					$comment_count,
+					'ahona'
+				)
+			),
+			esc_html($comment_count)
+		);			
         ?>
 			</div>
 		</div>
@@ -50,10 +58,6 @@
 					
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 						<?php the_content(); ?>
-
-						<?php 
-
-						 ?>
 					</article>
 
 				<?php endwhile;
@@ -74,11 +78,11 @@
 						$getUserUrl = get_avatar_url ($theAuthorId);
 						$getUserUrl = get_avatar_url($theAuthorId, array ('size' => 500));
 					 ?>
-					<img alt="" src="<?php echo get_avatar_url($theAuthorId, array ('size' => 500));?>" >
+					<img alt="" src="<?php echo esc_url(get_avatar_url($theAuthorId, array('size' => 500))); ?>" >
 				</div>
 				<div class="media-body">
 					<h4 class="media-heading"><?php the_author(); ?> </h4>
-					<p><?php echo nl2br( get_the_author_meta('description') ); ?></p>
+					<p><?php echo wp_kses_post(nl2br(get_the_author_meta('description'))); ?></p>
 				</div>
 			</div>
 		</div>
@@ -87,19 +91,19 @@
 </div>
 <section class="pagination_section">
 	<div class="container">
-		 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="lft_link">
-		 	<div class="inline-flex">
-            <div class="flex aic">
-                <span class="fa fa-angle-up"></span>
-            </div>
-            <div>
-                <span class="articles aic">Show all <strong>Articles</strong></span>
-            </div>
-        </div>
-		 </a>
-		 <div class="next_blog">
-		 	<span class="section-title">Next blogpost:</span>
-		 	<?php next_post_link(); ?>
+		<a href="<?php echo esc_url(home_url('/')); ?>" class="lft_link">
+			<div class="inline-flex">
+				<div class="flex aic">
+					<span class="fa fa-angle-up"></span>
+				</div>
+				<div>
+					<span class="articles aic"><?php echo esc_html__('Show all', 'ahona'); ?> <strong><?php echo esc_html__('Articles', 'ahona'); ?></strong></span>
+				</div>
+			</div>
+		</a>
+		<div class="next_blog">
+			<span class="section-title"><?php echo esc_html__('Next blogpost:', 'ahona'); ?></span>
+			<?php next_post_link(); ?>
 		</div>
 	</div>
 </section>
@@ -117,14 +121,13 @@ wp_link_pages(array(
 		<div class="comment_parent">
 		
 		<div id="commentform3">
-		<?php 
-			if( comments_open() ){ 
-				comments_template(); 
+		<?php
+			if (comments_open()) {
+				comments_template();
 			} else {
-				echo '<h5 class="text-center">Sorry, Comments are closed!</h5>';
+				echo '<h5 class="text-center">' . esc_html__('Sorry, Comments are closed!', 'ahona') . '</h5>';
 			}
-			
-		 ?>
+		?>
 		</div>
 		</div>
 		<div class="d-none">
@@ -161,7 +164,7 @@ if ($categories) {
     if ($related_posts_query->have_posts()) :?>
 		<section class="related_post">
 			<div class="container">
-				<h3 class="text-center">You may also like...</h3>
+				<h3 class="text-center"><?php echo esc_html__('You may also like...', 'ahona'); ?></h3>
 					<div class="row">
        <?php
         
@@ -169,7 +172,7 @@ if ($categories) {
             $related_posts_query->the_post(); ?>
            
 					<div class="col-sm-4 col-md-4">
-			   <a href="<?php echo get_permalink();?>" class="post_block">
+			   <a href="<?php echo esc_url(get_permalink()); ?>" class="post_block">
 			     <div class="post_block_img">
 			      <?php 
 			          $categories = get_the_category();
@@ -188,7 +191,7 @@ if ($categories) {
 			     <div class="post_block_content">
 			       <div class="author_name"><?php echo get_the_author(); ?></div>
 			       <h3><?php the_title() ?></h3>
-			       <div class="date"><?php echo get_the_date(); ?></div>
+			       <div class="date"><?php echo esc_html(date_i18n(get_option('date_format'), strtotime(get_the_date()))); ?></div>
 			     </div>
 			   </a>
 			 </div>
@@ -209,9 +212,9 @@ if ($categories) {
 
 <div class="single-media-sidebar">
     <ul>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink();?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="https://twitter.com/intent/tweet?text=<?php echo get_permalink();?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/shareArticle?url=<?php echo get_permalink();?>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com/intent/tweet?text=<?php echo rawurlencode(get_permalink()); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/shareArticle?url=<?php echo esc_url(get_permalink()); ?>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
     </ul>
 </div>
 

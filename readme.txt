@@ -1,11 +1,11 @@
 === Ahona ===
 
 Contributors: rajinsharwar
-Tags: one-column, two-columns, three-columns , four-columns, custom-background, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, theme-options, translation-ready
+Tags: blog, one-column, custom-logo, theme-options, custom-background, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, translation-ready
 Requires at least: 5.1
 Requires PHP: 5.6
 Tested up to: 6.4
-Version: 1.0.4
+Version: 1.0.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,9 +44,15 @@ Source: https://iconduck.com/illustrations/172773/404-error
 Licence: Creative Commons Attribution 4.0 International
 Licence URL: https://iconduck.com/licenses/cc-by-4.0
 
+Link Previews shown on hover:
+Credit: mShots
+Licence: GPLV2
+This theme uses "mShots" as a third party service to get the on-hover link previews. mshots is a Website Thumbnail/Snapshot Service from Automattic licenced GPL-2.0. No data of your's or your website, is being sent or shared with mShots. You can find it's licence and policy details from the below URL:
+https://github.com/Automattic/mShots/blob/master/LICENSE
+
 == Changelog ==
 
-= 1.0.3 =
+= 1.0.5 =
 * Initial release
 
 == Resources ==

@@ -1,4 +1,4 @@
-<div class="col-xs-<?php echo $column; ?>">
+<div class="col-xs-<?php echo esc_attr($column); ?>">
 	<?php if( has_post_thumbnail() ): ?>
 
 		<div class="thumbnail">234322352<?php the_post_thumbnail('thumbnail'); ?></div>

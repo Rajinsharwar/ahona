@@ -17,14 +17,48 @@ jQuery(window).scroll(function(){
 });
 
 	
-jQuery('.categorymneu').click(function(){
-	jQuery('.cat_dropdown .dropdown-menu') .slideToggle();
+// Toggle dropdown on .categorymneu click
+jQuery('.categorymneu').click(function(event) {
+    // Prevent the click event from reaching the document body
+    event.stopPropagation();
+
+    // Toggle the dropdown
+    jQuery('.cat_dropdown .dropdown-menu').slideToggle();
 });
 
-jQuery('.mobile-menu-hamber').click(function(){
-	jQuery('.top-header .mobile_menu') .slideToggle();
-	jQuery(this).toggleClass('open');
+// Close dropdown when clicking outside
+jQuery(document.body).click(function() {
+    // Close the dropdown
+    jQuery('.cat_dropdown .dropdown-menu').slideUp();
 });
+
+// Prevent clicks inside .categorymneu from closing the dropdown
+jQuery('.cat_dropdown .dropdown-menu').click(function(event) {
+    event.stopPropagation();
+});
+
+// Toggle mobile menu on .mobile-menu-hamber click
+jQuery('.mobile-menu-hamber').click(function(event) {
+    // Prevent the click event from reaching the document body
+    event.stopPropagation();
+
+    // Toggle the mobile menu
+    jQuery('.top-header .mobile_menu').slideToggle();
+    jQuery(this).toggleClass('open');
+});
+
+// Close mobile menu when clicking outside
+jQuery(document.body).click(function() {
+    // Close the mobile menu
+    jQuery('.top-header .mobile_menu').slideUp();
+    jQuery('.mobile-menu-hamber').removeClass('open');
+});
+
+// Prevent clicks inside .mobile-menu-hamber and .top-header .mobile_menu from closing the menu
+jQuery('.mobile-menu-hamber, .top-header .mobile_menu').click(function(event) {
+    event.stopPropagation();
+});
+
 jQuery( ".desktop_menu li.menu-item" ).hover(function() {  // mouse enter
     jQuery( this ).find( " > .dropdown-menu" ).show(); // display immediate child
 

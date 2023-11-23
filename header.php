@@ -43,11 +43,11 @@ if ( is_user_logged_in() ) {
 					    $custom_logo_id = get_theme_mod( 'custom_logo' );
 					    $logo_url = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 
-					    if ( $custom_logo_id ) {
-					        echo '<a href="' . esc_url( home_url( '/' ) ) . '"><img src="' . esc_url( $logo_url ) . '" alt="' . get_bloginfo( 'name' ) . '"></a>';
-					    } else {
-					        echo '<a style="color: ' . esc_attr($anchor_text_color) . ';" href="' . esc_url( home_url( '/' ) ) . '">' . get_bloginfo( 'name' ) . '</a>';
-					    }
+						if ($custom_logo_id) {
+							echo '<a href="' . esc_url(home_url('/')) . '"><img src="' . esc_url($logo_url) . '" alt="' . esc_attr(get_bloginfo('name')) . '"></a>';
+						} else {
+							echo '<a style="color: ' . esc_attr($anchor_text_color) . ';" href="' . esc_url(home_url('/')) . '">' . esc_html(get_bloginfo('name')) . '</a>';
+						}						
 					}
 					?>
 				</div>

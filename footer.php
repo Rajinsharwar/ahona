@@ -21,7 +21,7 @@
                         foreach ($social_icons as $key => $icon) {
                             $social_link = get_theme_mod($key . '_link');
                             if (!empty($social_link)) {
-                                echo '<li><a href="' . esc_url($social_link) . '" target="_blank"><i class="fa ' . $icon . '"></i></a></li>';
+                                echo '<li><a href="' . esc_url($social_link) . '" target="_blank"><i class="fa ' . esc_attr($icon) . '"></i></a></li>';
                             }
                         }
                         ?>
@@ -44,9 +44,6 @@
                           'depth' => 1,
                           'walker' => new Walker_Nav_Primary(),
                           'menu_class' => 'unstyled footer-menu-items',
-                             // 'echo' => false,
-
-                          
 
                       )
 
