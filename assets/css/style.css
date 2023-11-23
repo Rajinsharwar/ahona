@@ -838,3 +838,67 @@ body.admin-bar .top-header {
     color:#fff;
     border-radius:10px;
 }
+
+.gallery-caption{
+    display:block
+}
+
+.entry-content .aligncenter {
+	text-align: center;
+}
+
+.entry-content .wp-block-latest-comments.aligncenter .wp-block-latest-comments__comment-avatar {
+	margin: 0 auto 10px;
+	float: none;
+}
+
+.entry-content .wp-block-latest-comments.aligncenter article {
+	padding: 0 3px;
+}
+
+.entry-content .wp-block-latest-comments.aligncenter .wp-block-latest-comments__comment-excerpt {
+	text-align: center;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.5em;
+}
+
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 1.5em;
+	margin-bottom: 1.5em;
+}

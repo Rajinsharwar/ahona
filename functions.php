@@ -58,6 +58,8 @@ add_theme_support( 'title-tag' );
 add_theme_support( 'automatic-feed-links' );
 add_theme_support('post-thumbnails');
 add_theme_support('html5',array('search-form'));
+add_theme_support( 'register_block_pattern' );
+add_theme_support( 'register_block_style' );
 add_theme_support( 'custom-logo', array(
 	'height'      => 100,
 	'width'       => 400,

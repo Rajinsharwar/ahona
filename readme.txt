@@ -7,7 +7,7 @@ Requires PHP: 5.6
 Tested up to: 6.4
 Version: 1.0.5
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 == Description ==
 
