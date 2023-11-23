@@ -253,7 +253,7 @@ function ahona_theme_customize_register($wp_customize) {
 
     foreach ($social_icons as $key => $icon) {
         $wp_customize->add_setting($key . '_link', array(
-            'default' => '',
+            'default' => '#',
             'sanitize_callback' => 'esc_url_raw',
         ));
 

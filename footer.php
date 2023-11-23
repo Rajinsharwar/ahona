@@ -19,11 +19,14 @@
                         );
 
                         foreach ($social_icons as $key => $icon) {
-                            $social_link = get_theme_mod($key . '_link');
-                            if (!empty($social_link)) {
+                            $social_link = get_theme_mod($key . '_link', '#'); // Set the default value here
+                        
+                            // Check if the social link is empty or equals to "#" and skip if true
+                            if ( ! empty($social_link) || $social_link === '#') {
                                 echo '<li><a href="' . esc_url($social_link) . '" target="_blank"><i class="fa ' . esc_attr($icon) . '"></i></a></li>';
                             }
                         }
+
                         ?>
                     </ul>
                 </div>

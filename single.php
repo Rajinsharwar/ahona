@@ -212,10 +212,11 @@ if ($categories) {
 
 <div class="single-media-sidebar">
     <ul>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="https://twitter.com/intent/tweet?text=<?php echo rawurlencode(get_permalink()); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/shareArticle?url=<?php echo esc_url(get_permalink()); ?>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-    </ul>
+		<li><a href="<?php echo esc_url('https://www.facebook.com/sharer/sharer.php?u=' . rawurlencode(get_permalink())); ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		<li><a href="<?php echo esc_url('https://twitter.com/intent/tweet?text=' . rawurlencode(get_permalink())); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		<li><a href="<?php echo esc_url('https://www.linkedin.com/sharing/share-offsite/?url=' . rawurlencode(get_permalink())); ?>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+	</ul>
+
 </div>
 
 <?php get_footer(); ?>
