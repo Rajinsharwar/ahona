@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 p-0">
 			<?php 
-			
+
 			if( have_posts() ):
 				
 				while( have_posts() ): the_post(); ?>
