@@ -238,9 +238,6 @@ body.admin-bar .top-header {
     font-weight: 600;
 }
 .single_page h3{
-    font-size: 32px;
-}
-.single_page h4{
     font-size: 28px;
 }
 .catename_group .cat_name{
@@ -376,7 +373,7 @@ body.admin-bar .top-header {
     border-radius: 100%;
     border: 3px solid #fff;
 }
-.single-author-container .media-body h4{
+.single-author-container .media-body h3{
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 22px;

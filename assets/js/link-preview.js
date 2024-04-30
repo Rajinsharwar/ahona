@@ -22,7 +22,7 @@ jQuery(document).ready(function ($) {
             return item.trim() + " a";
         }).join(", ");
     }).join(", ");
-    var $links = $('#content a:link, #main-content a:link, .content-wrap a:link, .entry-content a:link, article a:not(:has(img))');
+    var $links = $('#content a, #main-content a, .content-wrap a, .entry-content a, article a:not(:has(img))');
     if (combinedExclusions !== "") {
         $links = $links.not(combinedExclusions);
     }

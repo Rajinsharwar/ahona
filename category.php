@@ -36,7 +36,8 @@
 
             <i class="search-icon fa fa-search"></i>
 
-            <input type="search" class="search-field" placeholder="<?php esc_attr_e('Search', 'ahona'); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php esc_attr_e('Search', 'ahona'); ?>" />
+            <label for="search-input" hidden><?php esc_html_e('Search', 'ahona'); ?></label>
+            <input type="search" class="search-field" id="search-input" placeholder="<?php esc_attr_e('Search', 'ahona'); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php esc_attr_e('Search', 'ahona'); ?>" />
 
         </form>
 

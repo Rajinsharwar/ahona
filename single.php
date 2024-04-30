@@ -81,7 +81,7 @@
 					<img alt="" src="<?php echo esc_url(get_avatar_url($theAuthorId, array('size' => 500))); ?>" >
 				</div>
 				<div class="media-body">
-					<h4 class="media-heading"><?php the_author(); ?> </h4>
+					<h3 class="media-heading"><?php the_author(); ?> </h3>
 					<p><?php echo wp_kses_post(nl2br(get_the_author_meta('description'))); ?></p>
 				</div>
 			</div>

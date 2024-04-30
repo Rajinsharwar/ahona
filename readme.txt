@@ -4,8 +4,8 @@ Contributors: rajinsharwar
 Tags: blog, one-column, custom-logo, theme-options, custom-background, custom-colors, custom-menu, editor-style, featured-images, full-width-template, sticky-post, translation-ready
 Requires at least: 5.1
 Requires PHP: 5.6
-Tested up to: 6.5.2
-Version: 1.0.5
+Tested up to: 6.5
+Version: 1.0.6
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -52,7 +52,7 @@ https://github.com/Automattic/mShots/blob/master/LICENSE
 
 == Changelog ==
 
-= 1.0.5 =
+= 1.0.6 =
 * Initial release
 
 == Resources ==
